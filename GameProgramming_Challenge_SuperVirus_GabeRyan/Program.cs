@@ -66,7 +66,15 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
             {
                 if (i < 1000)
                 {
-                    Console.SetCursorPosition(virusPosition[0].Item1 + randomNumber, virusPosition[0].Item2 + randomNumber);
+                    // update the virus position 
+                    virusPosition[0] = (virusPosition[0].Item1 + randomNumber, virusPosition[0].Item2 + randomNumber);
+
+                    // set cursor position 
+
+                    // write x 
+
+
+                    Console.SetCursorPosition(virusPosition[0].Item1, virusPosition[0].Item2);
                     Console.Write("X");
                     Console.SetCursorPosition(virusPosition[1].Item1 + randomNumber, virusPosition[1].Item2 + randomNumber);
                     Console.Write("X");
