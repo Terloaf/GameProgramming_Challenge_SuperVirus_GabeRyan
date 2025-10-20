@@ -106,24 +106,35 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
                     virusPosition[2] = (virusPosition[2].Item1 + randomNumber5, virusPosition[2].Item2 + randomNumber6);
                     
                     for(int i = 0; i < virusPosition.Count; i++)
-                {
-                    if (virusPosition[i].Item1 == -1)
                     {
-                        virusPosition[i] = (0, virusPosition[i].Item2);
+                        if (virusPosition[i].Item1 == -1)
+                        {
+                            virusPosition[i] = (0, virusPosition[i].Item2);
+                        }
+                        if (virusPosition[i].Item2 == -1)
+                        {
+                            virusPosition[i] = (virusPosition[i].Item1, 0);
+                        }
+                        if (virusPosition[i].Item1 == 50)
+                        {
+                            virusPosition[i] = (49, virusPosition[i].Item2);
+                        }
+                        if(virusPosition[i].Item2 == 15)
+                        {
+                            virusPosition[i] = (virusPosition[i].Item1, 14);
+                        }
+
+                    //if virus position = grass then move
+                    //if else dont move
+                    if (virusPosition[i] = minimap
+
+
+
+
+
                     }
-                    if (virusPosition[i].Item2 == -1)
-                    {
-                        virusPosition[i] = (virusPosition[i].Item1, 0);
-                    }
-                    if (virusPosition[i].Item1 == 50)
-                    {
-                        virusPosition[i] = (49, virusPosition[i].Item2);
-                    }
-                    if(virusPosition[i].Item2 == 15)
-                    {
-                        virusPosition[i] = (virusPosition[i].Item1, 14);
-                    }
-                }
+
+                    
                     
 
 
