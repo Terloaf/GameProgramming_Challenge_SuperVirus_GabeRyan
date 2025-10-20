@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -10,6 +11,7 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
 {
     internal class Program
     {
+        static float count = 0;
         static Random random = new Random();
         
 
@@ -60,7 +62,7 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
 
             while (true)
             {
-                
+                int Duper = random.Next(0, 11);
 
                     Console.SetCursorPosition(virusPosition[0].Item1, virusPosition[0].Item2);
 
@@ -72,15 +74,36 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
 
                     Thread.Sleep(500);
                     Console.SetCursorPosition(virusPosition[0].Item1, virusPosition[0].Item2);
+                if (Duper == 1)
+                {
+                    Console.Write("X");
+                }
+                else
+                {
                     Console.Write(minimap[virusPosition[0].Item2, virusPosition[0].Item1]);
+                }
                     Console.SetCursorPosition(virusPosition[1].Item1, virusPosition[1].Item2);
+                if (Duper == 5)
+                {
+                    Console.Write("X");
+                }
+                else
+                {
                     Console.Write(minimap[virusPosition[1].Item2, virusPosition[1].Item1]);
+                }
                     Console.SetCursorPosition(virusPosition[2].Item1, virusPosition[2].Item2);
+                if (Duper == 10)
+                {
+                    Console.Write("X");
+                }
+                else
+                {
                     Console.Write(minimap[virusPosition[2].Item2, virusPosition[2].Item1]);
+                }
 
 
 
-
+                
 
 
                 
@@ -91,7 +114,7 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
                     int randomNumber5 = random.Next(-1, 2);
                     int randomNumber6 = random.Next(-1, 2);
 
-
+                
 
 
                     // set cursor position to virus position
@@ -104,29 +127,50 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
                     virusPosition[1] = (virusPosition[1].Item1 + randomNumber3, virusPosition[1].Item2 + randomNumber4);
 
                     virusPosition[2] = (virusPosition[2].Item1 + randomNumber5, virusPosition[2].Item2 + randomNumber6);
-                    
-                    for(int i = 0; i < virusPosition.Count; i++)
+
+                for (int i = 0; i < virusPosition.Count; i++)
+                {
+                    if (virusPosition[i].Item1 == -1)
                     {
-                        if (virusPosition[i].Item1 == -1)
-                        {
-                            virusPosition[i] = (0, virusPosition[i].Item2);
-                        }
-                        if (virusPosition[i].Item2 == -1)
-                        {
-                            virusPosition[i] = (virusPosition[i].Item1, 0);
-                        }
-                        if (virusPosition[i].Item1 == 50)
-                        {
-                            virusPosition[i] = (49, virusPosition[i].Item2);
-                        }
-                        if(virusPosition[i].Item2 == 15)
-                        {
-                            virusPosition[i] = (virusPosition[i].Item1, 14);
-                        }
+                        virusPosition[i] = (0, virusPosition[i].Item2);
+                    }
+                    if (virusPosition[i].Item2 == -1)
+                    {
+                        virusPosition[i] = (virusPosition[i].Item1, 0);
+                    }
+                    if (virusPosition[i].Item1 == 50)
+                    {
+                        virusPosition[i] = (49, virusPosition[i].Item2);
+                    }
+                    if (virusPosition[i].Item2 == 15)
+                    {
+                        virusPosition[i] = (virusPosition[i].Item1, 14);
+                    }
+
 
                     //if virus position = grass then move
                     //if else dont move
-                    if (virusPosition[i] = minimap
+
+                    if (minimap[virusPosition[i].Item2, virusPosition[i].Item1] == '-')
+                    {
+                        continue;
+
+
+                    }
+                    else if (minimap[virusPosition[i].Item2, virusPosition[i].Item1] == 'X')
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        virusPosition[0] = (virusPosition[0].Item1 - randomNumber, virusPosition[0].Item2 - randomNumber2);
+
+                        virusPosition[1] = (virusPosition[1].Item1 - randomNumber3, virusPosition[1].Item2 - randomNumber4);
+
+                        virusPosition[2] = (virusPosition[2].Item1 - randomNumber5, virusPosition[2].Item2 - randomNumber6);
+                    }
+
+                   // if (virusPosition[i] = minimap
 
 
 
@@ -134,18 +178,18 @@ namespace GameProgramming_Challenge_SuperVirus_GabeRyan
 
                     }
 
-                    
-                    
 
 
 
 
-                    //Move x in random position
-                    // make previous space what it was before
+
+
+                //Move x in random position
+                // make previous space what it was before
 
 
 
-
+                count++;
 
 
                 
